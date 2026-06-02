@@ -32,27 +32,16 @@
             },
             animation: {
               "infinite-scroll": "infinite-scroll 30s linear infinite",
-              "fish-swim": "fish-swim 2s ease-in-out forwards",
-              "fade-out": "fade-out 0.8s ease-in-out 1.5s forwards",
+              "screen-slide": "screen-slide 2s ease-in-out forwards",
             },
             keyframes: {
               "infinite-scroll": {
                 from: { transform: "translateX(0)" },
                 to: { transform: "translateX(-50%)" },
               },
-              "fish-swim": {
-                "0%": { transform: "translateX(-100%) translateY(0)", opacity: "0" },
-                "5%": { opacity: "1" },
-                "15%": { transform: "translateX(10%) translateY(-20px)" },
-                "35%": { transform: "translateX(30%) translateY(20px)" },
-                "55%": { transform: "translateX(50%) translateY(-15px)" },
-                "75%": { transform: "translateX(75%) translateY(15px)" },
-                "95%": { opacity: "1" },
-                "100%": { transform: "translateX(100vw) translateY(0)", opacity: "0" },
-              },
-              "fade-out": {
-                from: { opacity: "1" },
-                to: { opacity: "0", pointerEvents: "none" },
+              "screen-slide": {
+                "0%": { transform: "translateX(0)" },
+                "100%": { transform: "translateX(100%)" },
               },
             },
           },
@@ -63,15 +52,13 @@
   <body
     class="font-body antialiased selection:bg-nemo-orange selection:text-nemo-black"
   >
-    <!-- SPLASH SCREEN - SWIMMING FISH LOGO -->
-    <div id="splashScreen" class="fixed inset-0 bg-nemo-black z-[100] flex items-center justify-center animate-fade-out">
-      <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-        <img 
-          src="logo-placeholder.png" 
-          alt="Nemo Fish Logo" 
-          class="h-24 md:h-32 w-auto object-contain animate-fish-swim drop-shadow-lg"
-        >
-      </div>
+    <!-- SPLASH SCREEN - BLACK SCREEN SLIDES OUT WITH FISH -->
+    <div id="splashScreen" class="fixed inset-0 bg-nemo-black z-[100] flex items-center justify-center animate-screen-slide origin-left">
+      <img 
+        src="logo-placeholder.png" 
+        alt="Nemo Fish Logo" 
+        class="h-24 md:h-32 w-auto object-contain drop-shadow-lg"
+      >
     </div>
 
     <!-- SECTION 1 — NAVIGATION -->
