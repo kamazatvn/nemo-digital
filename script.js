@@ -87,6 +87,17 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
+// Global mobile menu functions
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.classList.toggle('hidden');
+}
+
+function closeMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.classList.add('hidden');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Remove splash overlay after animation completes
   const splashOverlay = document.getElementById('splashOverlay');

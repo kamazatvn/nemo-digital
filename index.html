@@ -114,11 +114,71 @@
             >Liên hệ</a
           >
         </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobileMenuBtn"
+          class="md:hidden text-nemo-beige hover:text-nemo-orange transition-colors"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+
         <a
           href="#contact"
           class="hidden md:inline-block font-heading font-bold text-lg uppercase bg-nemo-orange text-nemo-black px-8 py-3 hover:bg-[#d14a0d] hover:text-nemo-beige transition-colors"
           >Đặt lịch tư vấn &rarr;</a
         >
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-nemo-black/95 border-t border-nemo-beige/20 px-6 py-4 space-y-4"
+      >
+        <a
+          href="#services"
+          onclick="closeMobileMenu()"
+          class="block font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors"
+          >Dịch vụ</a
+        >
+        <a
+          href="#results"
+          onclick="closeMobileMenu()"
+          class="block font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors"
+          >Kết quả</a
+        >
+        <a
+          href="#team"
+          onclick="closeMobileMenu()"
+          class="block font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors"
+          >Đội ngũ</a
+        >
+        <a
+          href="#contact"
+          onclick="closeMobileMenu()"
+          class="block font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors"
+          >Liên hệ</a
+        >
+        <a
+          href="#contact"
+          onclick="closeMobileMenu()"
+          class="block text-center font-heading font-bold text-lg uppercase bg-nemo-orange text-nemo-black px-8 py-3 hover:bg-[#d14a0d] hover:text-nemo-beige transition-colors"
+          >Đặt lịch tư vấn &rarr;</a
+        >
+      </div>
       </div>
     </header>
 
