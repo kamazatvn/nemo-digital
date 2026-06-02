@@ -32,11 +32,23 @@
             },
             animation: {
               "infinite-scroll": "infinite-scroll 30s linear infinite",
+              "fish-swim": "fish-swim 3s ease-in-out forwards",
+              "fade-out": "fade-out 1s ease-in-out 2.5s forwards",
             },
             keyframes: {
               "infinite-scroll": {
                 from: { transform: "translateX(0)" },
                 to: { transform: "translateX(-50%)" },
+              },
+              "fish-swim": {
+                "0%": { transform: "translateX(-100%)", opacity: "0" },
+                "10%": { opacity: "1" },
+                "90%": { opacity: "1" },
+                "100%": { transform: "translateX(100vw)", opacity: "0" },
+              },
+              "fade-out": {
+                from: { opacity: "1" },
+                to: { opacity: "0", pointerEvents: "none" },
               },
             },
           },
@@ -47,6 +59,17 @@
   <body
     class="font-body antialiased selection:bg-nemo-orange selection:text-nemo-black"
   >
+    <!-- SPLASH SCREEN - SWIMMING FISH LOGO -->
+    <div id="splashScreen" class="fixed inset-0 bg-nemo-black z-[100] flex items-center justify-center animate-fade-out">
+      <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+        <img 
+          src="logo-placeholder.png" 
+          alt="Nemo Fish Logo" 
+          class="h-24 md:h-32 w-auto object-contain animate-fish-swim drop-shadow-lg"
+        >
+      </div>
+    </div>
+
     <!-- SECTION 1 — NAVIGATION -->
     <header
       class="fixed top-0 w-full bg-nemo-black/95 backdrop-blur-md z-50 border-b border-nemo-beige/20"

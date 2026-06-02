@@ -88,6 +88,14 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Remove splash screen after animation completes
+  const splashScreen = document.getElementById('splashScreen');
+  if (splashScreen) {
+    setTimeout(() => {
+      splashScreen.remove();
+    }, 3500); // Animation completes at 3.5 seconds
+  }
+
   const observerOptions = {
     root: null,
     rootMargin: "0px",
