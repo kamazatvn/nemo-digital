@@ -584,17 +584,40 @@
           class="flex flex-col md:flex-row justify-between items-center border-t border-nemo-beige/20 pt-10 text-sm uppercase tracking-widest opacity-60"
         >
           <div class="space-x-8 mb-6 md:mb-0">
-            <a href="#" class="hover:text-nemo-orange transition-colors"
-              >Chính sách bảo mật</a
+            <button onclick="openModal('privacy')" class="hover:text-nemo-orange transition-colors cursor-pointer bg-none border-none p-0 text-inherit"
+              >Chính sách bảo mật</button
             >
-            <a href="#" class="hover:text-nemo-orange transition-colors"
-              >Điều khoản dịch vụ</a
+            <button onclick="openModal('terms')" class="hover:text-nemo-orange transition-colors cursor-pointer bg-none border-none p-0 text-inherit"
+              >Điều khoản dịch vụ</button
             >
           </div>
           <p>&copy; 2026 NEMO DIGITAL.</p>
         </div>
       </div>
     </footer>
+
+    <!-- MODAL POPUP FOR POLICIES -->
+    <div id="policyModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+      <div class="bg-nemo-black border border-nemo-beige/30 rounded-lg max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center border-b border-nemo-beige/20 p-6">
+          <h2 id="modalTitle" class="font-heading text-3xl uppercase text-nemo-orange"></h2>
+          <button onclick="closeModal()" class="text-nemo-beige hover:text-nemo-orange transition-colors text-2xl">&times;</button>
+        </div>
+        
+        <!-- Modal Content (Scrollable) -->
+        <div id="modalContent" class="overflow-y-auto flex-1 p-6 text-nemo-beige text-sm md:text-base leading-relaxed">
+          <!-- Content will be inserted here -->
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="border-t border-nemo-beige/20 p-6 flex justify-end">
+          <button onclick="closeModal()" class="font-heading font-bold uppercase bg-nemo-orange text-nemo-black px-8 py-3 hover:bg-[#d14a0d] transition-colors">
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- JavaScript Link (Keep your existing script.js) -->
     <script src="script.js"></script>
