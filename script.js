@@ -1,4 +1,7 @@
-// Modal content
+// ============================================================================
+// MODAL CONTENT
+// ============================================================================
+
 const privacyContent = `
   <h3 class="font-heading text-2xl uppercase mb-6 text-nemo-orange">CHÍNH SÁCH BẢO MẬT (PRIVACY POLICY)</h3>
   <p class="text-xs opacity-60 mb-6"><em>Cập nhật lần cuối: 2026</em></p>
@@ -63,7 +66,10 @@ const termsContent = `
   <p class="mb-4">Nemo Digital cam kết tối ưu hóa các chiến dịch theo các chỉ số đã cam kết. Tuy nhiên, chúng tôi không chịu trách nhiệm cho các thiệt hại gián tiếp phát sinh từ các yếu tố bất khả kháng hoặc các thay đổi đột ngột từ thuật toán của bên thứ ba (TikTok, Facebook, Google, v.v.).</p>
 `;
 
-// Global modal functions
+// ============================================================================
+// MODAL FUNCTIONS (Global)
+// ============================================================================
+
 function openModal(type) {
   const modal = document.getElementById('policyModal');
   const title = document.getElementById('modalTitle');
@@ -87,7 +93,10 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-// Global mobile menu functions
+// ============================================================================
+// MOBILE MENU FUNCTIONS (Global)
+// ============================================================================
+
 function toggleMobileMenu() {
   const mobileMenu = document.getElementById('mobileMenu');
   mobileMenu.classList.toggle('hidden');
@@ -98,94 +107,126 @@ function closeMobileMenu() {
   mobileMenu.classList.add('hidden');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Remove splash overlay after animation completes
+// ============================================================================
+// INTERSECTION OBSERVER FOR SMOOTH SCROLL ANIMATIONS
+// ============================================================================
+
+class ScrollAnimationManager {
+  constructor() {
+    this.observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15,
+    };
+    this.init();
+  }
+
+  init() {
+    // Create observers
+    this.createSectionObserver();
+    this.createCounterObserver();
+    this.attachModalClickHandler();
+  }
+
+  createSectionObserver() {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add visible state classes
+          entry.target.classList.remove('opacity-0', 'translate-y-8', 'pointer-events-none');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          
+          // Stop observing after animation
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, this.observerOptions);
+
+    // Observe all sections with fade-in-section class
+    const sections = document.querySelectorAll('.fade-in-section');
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  }
+
+  createCounterObserver() {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.dataset.target, 10);
+          const duration = 1000;
+          const start = Date.now();
+
+          const animate = () => {
+            const elapsed = Date.now() - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(progress * target);
+            counter.textContent = current;
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          animate();
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, this.observerOptions);
+
+    const counters = document.querySelectorAll('.scroll-counter');
+    counters.forEach((counter) => {
+      counterObserver.observe(counter);
+    });
+  }
+
+  attachModalClickHandler() {
+    const modal = document.getElementById('policyModal');
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+  }
+}
+
+// ============================================================================
+// DOM CONTENT LOADED
+// ============================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Remove splash overlay after animation
   const splashOverlay = document.getElementById('splashOverlay');
   if (splashOverlay) {
     setTimeout(() => {
       splashOverlay.remove();
-    }, 2000); // Animation completes at 2 seconds
+    }, 2000);
   }
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.15,
-  };
+  // Initialize scroll animations
+  new ScrollAnimationManager();
 
-  const sectionObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove("opacity-0", "translate-y-8");
-        entry.target.classList.add("opacity-100", "translate-y-0");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  const sections = document.querySelectorAll(".fade-in-section");
-  sections.forEach((section) => {
-    sectionObserver.observe(section);
-  });
-
-  const counterObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = parseInt(counter.dataset.target, 10);
-        const duration = 1000;
-        const start = Date.now();
-
-        const animate = () => {
-          const elapsed = Date.now() - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const current = Math.floor(progress * target);
-          counter.textContent = current;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else {
-            counter.textContent = target;
-          }
-        };
-
-        animate();
-        observer.unobserve(counter);
-      }
-    });
-  }, observerOptions);
-
-  const counters = document.querySelectorAll(".scroll-counter");
-  counters.forEach((counter) => {
-    counterObserver.observe(counter);
-  });
-
-  // Close modal when clicking outside
-  const modal = document.getElementById('policyModal');
-  if (modal) {
-    modal.addEventListener('click', function (e) {
-      if (e.target === this) {
-        closeModal();
-      }
-    });
-  }
-
-  // Newsletter Form Submission Handling
-  const form = document.getElementById("newsletterForm");
+  // Newsletter form submission
+  const form = document.getElementById('newsletterForm');
   if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const btn = form.querySelector("button");
+      const btn = form.querySelector('button');
       const originalText = btn.innerHTML;
 
-      btn.innerHTML = "Đã đăng ký thành công &check;";
-      btn.classList.replace("bg-nemo-orange", "bg-nemo-beige");
+      btn.innerHTML = 'Đã đăng ký thành công &check;';
+      btn.classList.replace('bg-nemo-orange', 'bg-nemo-beige');
 
       form.reset();
 
       setTimeout(() => {
         btn.innerHTML = originalText;
-        btn.classList.replace("bg-nemo-beige", "bg-nemo-orange");
+        btn.classList.replace('bg-nemo-beige', 'bg-nemo-orange');
       }, 3000);
     });
   }
