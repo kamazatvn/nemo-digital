@@ -41,8 +41,8 @@
                 to: { transform: "translateX(-50%)" },
               },
               "logo-slide": {
-                "0%": { transform: "translateX(-100%)" },
-                "100%": { transform: "translateX(100%)" },
+                "0%": { transform: "translateX(-150vw)" },
+                "100%": { transform: "translateX(150vw)" },
               },
               "blur-fade": {
                 "0%": { backdropFilter: "blur(20px)" },
@@ -53,6 +53,22 @@
         },
       };
     </script>
+    <style>
+      @keyframes logo-slide {
+        0% { transform: translateX(-150vw); }
+        100% { transform: translateX(150vw); }
+      }
+      @keyframes blur-fade {
+        0% { backdrop-filter: blur(20px); }
+        100% { backdrop-filter: blur(0px); }
+      }
+      .animate-logo-slide {
+        animation: logo-slide 2s linear forwards;
+      }
+      .animate-blur-fade {
+        animation: blur-fade 2s linear forwards;
+      }
+    </style>
   </head>
   <body
     class="font-body antialiased selection:bg-nemo-orange selection:text-nemo-black"
@@ -62,7 +78,7 @@
       <img 
         src="logo-placeholder.png" 
         alt="Nemo Fish Logo" 
-        class="h-48 md:h-64 w-auto object-contain animate-logo-slide drop-shadow-2xl"
+        class="h-48 md:h-64 w-auto object-contain animate-logo-slide drop-shadow-2xl will-change-transform"
       >
     </div>
 
