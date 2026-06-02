@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth bg-nemo-black text-nemo-beige">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemo Digital | Trình quản lý quảng cáo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    nemo: {
+                        orange: '#F15E18',
+                        black: '#050505',
+                        beige: '#EFEADD'
+                    }
+                },
+                fontFamily: {
+                    heading: ['"Barlow Condensed"', 'sans-serif'],
+                    body: ['"Inter"', 'sans-serif']
+                },
+                animation: {
+                    'infinite-scroll': 'infinite-scroll 30s linear infinite',
+                },
+                keyframes: {
+                    'infinite-scroll': {
+                        from: { transform: 'translateX(0)' },
+                        to: { transform: 'translateX(-50%)' },
+                    }
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="font-body antialiased selection:bg-nemo-orange selection:text-nemo-black">
+
+    
+
+    <!-- SECTION 1 — NAVIGATION -->
+    <header class="fixed top-0 w-full bg-nemo-black/95 backdrop-blur-md z-50 border-b border-nemo-beige/20">
+        <div class="max-w-[90rem] mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="logo">
+                <img src="logo-placeholder.png" alt="Nemo Logo" class="h-10">
+            </div>
+            <nav class="hidden md:flex space-x-10">
+                <a href="#services" class="font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors">Dịch vụ</a>
+                <a href="#results" class="font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors">Kết quả</a>
+                <a href="#team" class="font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors">Đội ngũ</a>
+                <a href="#contact" class="font-medium uppercase text-sm tracking-widest hover:text-nemo-orange transition-colors">Liên hệ</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block font-heading font-bold text-lg uppercase bg-nemo-orange text-nemo-black px-8 py-3 hover:bg-[#d14a0d] hover:text-nemo-beige transition-colors">Đặt lịch tư vấn &rarr;</a>
+        </div>
+    </header>
+
+    <!-- SECTION 2 — HERO -->
+    <section class="pt-56 pb-32 px-6 min-h-screen flex items-center border-b border-nemo-beige/20 fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="max-w-[90rem] mx-auto w-full">
+            <div class="inline-block px-5 py-2 border border-nemo-beige rounded-full text-sm uppercase tracking-widest mb-10">Được tin tưởng bởi các doanh nghiệp Việt tại Đức</div>
+            <!-- Scaled up H1 and tightened line-height to mimic Affluent -->
+            <h1 class="font-heading text-6xl md:text-[7rem] lg:text-[8rem] uppercase leading-[0.9] tracking-tight mb-10 max-w-6xl">
+                Lần đầu tiên, bạn có một đội ngũ thực sự <span class="text-nemo-orange">hiểu</span> doanh nghiệp của mình.
+            </h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-end mt-16">
+                <p class="text-xl md:text-2xl max-w-xl opacity-90 leading-relaxed">Nemo được dẫn dắt bởi nhà sáng tạo nội dung hàng đầu thị trường — mang năng lực content chuyên nghiệp vào từng chiến dịch quảng cáo của bạn.</p>
+                <div class="md:text-right">
+                    <a href="#contact" class="inline-block font-heading font-bold text-2xl uppercase bg-nemo-orange text-nemo-black px-12 py-6 hover:bg-[#d14a0d] hover:text-nemo-beige transition-colors">Nhận tư vấn miễn phí &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — LOGO BAR (INFINITE MARQUEE) -->
+   <section class="bg-nemo-beige text-nemo-black py-20 border-b border-nemo-black/20 fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="max-w-[90rem] mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
+            <p class="font-heading font-bold uppercase tracking-widest text-2xl whitespace-nowrap z-10">Đã làm việc cùng</p>
+            
+            <div class="relative flex overflow-hidden w-full mask-image-fade group">
+                <div class="flex whitespace-nowrap animate-infinite-scroll group-hover:[animation-play-state:paused] items-center w-max">
+                    
+                    <div class="flex gap-24 px-12 py-4 items-center justify-center">
+                        <img src="logocus1.jpg alt="Client 1" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus2.png" alt="Client 2" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus3.png" alt="Client 3" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus4.png" alt="Client 4" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus5.png" alt="Client 5" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus6.png" alt="Client 6" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus7.png" alt="Client 7" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus8.png" alt="Client 8" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus9.png" alt="Client 9" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus10.png" alt="Client 10" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus11.png" alt="Client 11" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                    </div>
+
+                    <div class="flex gap-24 px-12 py-4 items-center justify-center" aria-hidden="true">
+                        <img src="logocus1.jpg" alt="Client 1" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus2.png" alt="Client 2" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus3.png" alt="Client 3" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus4.png" alt="Client 4" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus5.png" alt="Client 5" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus6.png" alt="Client 6" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus7.png" alt="Client 7" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus8.png" alt="Client 8" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus9.png" alt="Client 9" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus10.png" alt="Client 10" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                        <img src="logocus11.png" alt="Client 11" class="h-28 w-auto max-w-[400px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — SERVICES / VALUE PROPOSITION -->
+    <section id="services" class="py-32 px-6 border-b border-nemo-beige/20 fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="max-w-[90rem] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+                <div class="lg:col-span-8">
+                    <h2 class="font-heading text-5xl md:text-[5.5rem] uppercase leading-[0.9] tracking-tight">Không chỉ quảng cáo — chúng tôi tạo ra thứ <span class="text-nemo-orange">khiến người ta dừng lại</span>.</h2>
+                </div>
+                <div class="lg:col-span-4 flex flex-col justify-end">
+                    <p class="text-lg opacity-90 mb-8">Phần lớn agency chạy quảng cáo rồi đổ lỗi cho ngân sách. Nemo bắt đầu từ content — vì content mạnh là thứ duy nhất giúp mỗi đồng quảng cáo tạo ra kết quả thật. Từ chiến lược đến sản xuất đến tối ưu, chúng tôi xử lý toàn bộ.</p>
+                    <a href="#contact" class="inline-block font-heading font-bold text-xl uppercase bg-transparent border-2 border-nemo-orange text-nemo-orange px-8 py-4 hover:bg-nemo-orange hover:text-nemo-black transition-colors w-max">Đặt lịch tư vấn &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Changed to a 2-column grid with massive tiles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="border border-nemo-beige/20 p-12 md:p-16 flex flex-col justify-between min-h-[400px] hover:border-nemo-orange transition-colors">
+                    <h3 class="font-heading text-4xl md:text-5xl uppercase mb-8">Hình ảnh & thiết kế quảng cáo</h3>
+                    <p class="opacity-80 text-lg">Banner, visual được thiết kế từ thông điệp thương hiệu của bạn — không phải template có sẵn. Chạy được ngay trên Facebook, Instagram, TikTok.</p>
+                </div>
+                <div class="border border-nemo-beige/20 p-12 md:p-16 flex flex-col justify-between min-h-[400px] hover:border-nemo-orange transition-colors">
+                    <h3 class="font-heading text-4xl md:text-5xl uppercase mb-8">Video quảng cáo ngắn</h3>
+                    <p class="opacity-80 text-lg">Video 15–60 giây giữ người xem từ giây đầu tiên. Được sản xuất chuyên nghiệp để tạo tò mò và khiến họ muốn biết thêm về bạn.</p>
+                </div>
+                <div class="border border-nemo-beige/20 p-12 md:p-16 flex flex-col justify-between min-h-[400px] hover:border-nemo-orange transition-colors">
+                    <h3 class="font-heading text-4xl md:text-5xl uppercase mb-8">Video quảng cáo người thật</h3>
+                    <p class="opacity-80 text-lg">Trông như review tự nhiên từ người dùng thực — không phải quảng cáo truyền thống. Tin tưởng hơn, ít bỏ qua hơn, dễ ra quyết định hơn.</p>
+                </div>
+                <div class="border border-nemo-beige/20 p-12 md:p-16 flex flex-col justify-between min-h-[400px] hover:border-nemo-orange transition-colors">
+                    <h3 class="font-heading text-4xl md:text-5xl uppercase mb-8">Quản lý & tối ưu chiến dịch</h3>
+                    <p class="opacity-80 text-lg">Nemo thiết lập, chạy, và tối ưu hàng ngày trên Facebook & Instagram. Mỗi đồng ngân sách được theo dõi — và phải tạo ra kết quả thật.</p>
+                </div>
+            </div>
+            
+            <!-- Scaled up portfolio images to 2 large aspect ratio blocks -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div class="bg-zinc-900 aspect-[4/3] flex items-center justify-center text-zinc-600 text-2xl uppercase font-heading">Hình ảnh thực tế 1</div>
+                <div class="bg-zinc-900 aspect-[4/3] flex items-center justify-center text-zinc-600 text-2xl uppercase font-heading">Hình ảnh thực tế 2</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — CASE STUDIES -->
+    <section id="results" class="py-32 px-6 bg-nemo-beige text-nemo-black border-b border-nemo-black/20 fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="max-w-[90rem] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-10">
+                <div class="max-w-3xl">
+                    <div class="inline-block px-5 py-2 border border-nemo-black rounded-full text-sm uppercase tracking-widest mb-8">Kết quả thực tế từ khách hàng</div>
+                    <h2 class="font-heading text-5xl md:text-[5.5rem] uppercase leading-[0.9] tracking-tight">Những con số không nói dối.</h2>
+                </div>
+                <p class="text-xl max-w-md opacity-90">Mỗi chiến dịch Nemo chạy đều được đo lường từ ngày đầu. Dưới đây là kết quả thực tế từ các doanh nghiệp Việt tại Đức.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Enlarged Case Study Tile -->
+                <div class="bg-nemo-black text-nemo-beige p-12 md:p-20 flex flex-col justify-between">
+                    <div>
+                        <p class="text-nemo-orange font-bold uppercase tracking-widest text-sm mb-4">Nhà hàng / F&B</p>
+                        <h3 class="font-heading text-4xl md:text-5xl uppercase mb-10">[CẦN BỔ SUNG tên khách hàng]</h3>
+                        <div class="space-y-4 text-lg">
+                            <p class="border-b border-nemo-beige/20 pb-4"><strong>Dự án:</strong> Chiến dịch quảng cáo tháng đầu tiên</p>
+                            <p class="border-b border-nemo-beige/20 pb-4"><strong>Dịch vụ:</strong> Video quảng cáo ngắn + Quản lý Facebook Ads</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16">
+                        <div class="font-heading text-7xl md:text-[6rem] text-nemo-orange leading-none mb-4">+10–20%</div>
+                        <div class="font-body text-xl uppercase tracking-widest mb-10 opacity-80">Doanh thu (tháng 1)</div>
+                        <blockquote class="text-2xl font-heading leading-tight italic border-l-4 border-nemo-orange pl-6 opacity-90">
+                            "[CẦN BỔ SUNG — trích dẫn từ khách hàng]"
+                            <span class="block text-lg font-body not-italic mt-4 opacity-60">- [Tên], chủ nhà hàng</span>
+                        </blockquote>
+                    </div>
+                </div>
+                <!-- Additional case study space -->
+                <div class="border-2 border-nemo-black border-dashed flex items-center justify-center p-12 md:p-20 text-center opacity-50">
+                    <p class="font-heading text-3xl uppercase">[Case Study #2 Space]</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-right">
+                <a href="#" class="inline-block font-heading text-2xl uppercase underline hover:text-nemo-orange transition-colors">Xem tất cả case studies &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — TEAM -->
+    <section id="team" class="py-0 border-b border-nemo-beige/20 fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="w-full aspect-square lg:aspect-auto lg:h-full bg-zinc-800 relative">
+                 <img src="founder.jpg" alt="Phạm Quang Thọ" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            
+            <div class="p-12 md:p-24 lg:p-32 flex flex-col justify-center bg-nemo-beige text-nemo-black">
+                <h2 class="font-heading text-5xl md:text-6xl uppercase mb-8 leading-[0.9]">Đội ngũ đứng sau mỗi chiến dịch.</h2>
+                <p class="text-xl mb-16 opacity-80 border-b border-nemo-black/20 pb-12">Nemo không phải agency thuê ngoài rồi giao việc cho người khác. Mọi chiến dịch đều được xây dựng và theo dõi bởi người thực sự hiểu content — và hiểu thị trường bạn đang hoạt động.</p>
+                
+                <div>
+                    <h3 class="font-heading text-5xl uppercase mb-4">Tho — Phạm Quang Thọ</h3>
+                    <p class="text-nemo-orange font-bold uppercase tracking-widest mb-8">Nhà sáng lập | Content Creator | Media Specialist</p>
+                    <p class="text-lg leading-relaxed">Nhà sáng tạo nội dung với hơn 360.000 người theo dõi trên TikTok. Chuyên gia về short-form content và quảng cáo trả phí cho thị trường Việt–Đức. Người trực tiếp xây dựng và điều hành mọi chiến dịch của Nemo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — NEWSLETTER -->
+    <section class="py-32 px-6 bg-[#0a0a0a] border-b border-nemo-beige/20 fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-heading text-5xl md:text-[5rem] uppercase mb-8 leading-[0.9]">Nhận bí quyết tăng trưởng cho doanh nghiệp — <span class="text-nemo-orange">mỗi tuần</span>.</h2>
+            <p class="text-xl mb-16 opacity-80 max-w-2xl mx-auto">Mỗi tuần, Nemo chia sẻ 1 chiến lược content hoặc quảng cáo thực tế. Không spam. Không bán hàng. Chỉ kiến thức thật.</p>
+            
+            <form id="newsletterForm" class="space-y-6 text-left">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Họ và tên (bắt buộc)" required class="w-full bg-transparent border-b-2 border-nemo-beige/30 p-4 text-xl focus:outline-none focus:border-nemo-orange transition-colors">
+                    <input type="email" placeholder="Email (bắt buộc)" required class="w-full bg-transparent border-b-2 border-nemo-beige/30 p-4 text-xl focus:outline-none focus:border-nemo-orange transition-colors">
+                </div>
+                <input type="text" placeholder="Tên doanh nghiệp / Website (tùy chọn)" class="w-full bg-transparent border-b-2 border-nemo-beige/30 p-4 text-xl focus:outline-none focus:border-nemo-orange transition-colors">
+                
+                <div class="flex items-start gap-4 py-8 opacity-80 text-lg">
+                    <input type="checkbox" id="consent" required class="mt-2 w-5 h-5 accent-nemo-orange">
+                    <label for="consent">Tôi đồng ý nhận email từ Nemo Digital. Có thể hủy bất cứ lúc nào.</label>
+                </div>
+                <button type="submit" class="w-full font-heading font-bold text-3xl uppercase bg-nemo-orange text-nemo-black py-8 hover:bg-[#d14a0d] hover:text-nemo-beige transition-colors">Đăng ký miễn phí &rarr;</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — FOOTER CTA & FOOTER -->
+    <footer id="contact" class="pt-32 pb-12 px-6 text-center fade-in-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div class="max-w-[70rem] mx-auto">
+            <h2 class="font-heading text-6xl md:text-[7rem] uppercase mb-16 leading-[0.9] tracking-tight">
+                Giúp doanh nghiệp của bạn được <span class="text-nemo-orange">biết đến nhiều hơn</span>.
+            </h2>
+            <a href="#" class="inline-block font-heading font-bold text-3xl uppercase bg-nemo-beige text-nemo-black px-16 py-8 hover:bg-nemo-orange transition-colors mb-32">Đặt lịch tư vấn miễn phí &rarr;</a>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-nemo-beige/20 pt-10 text-sm uppercase tracking-widest opacity-60">
+                <div class="space-x-8 mb-6 md:mb-0">
+                    <a href="#" class="hover:text-nemo-orange transition-colors">Chính sách bảo mật</a>
+                    <a href="#" class="hover:text-nemo-orange transition-colors">Điều khoản dịch vụ</a>
+                </div>
+                <p>&copy; 2026 NEMO DIGITAL.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Link (Keep your existing script.js) -->
+    <script src="script.js"></script>
+</body>
+</html>
