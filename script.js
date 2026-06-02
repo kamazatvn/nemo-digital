@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (splashScreen) {
     setTimeout(() => {
       splashScreen.remove();
-    }, 3500); // Animation completes at 3.5 seconds
+    }, 2300); // Animation completes at 2.3 seconds
   }
 
   const observerOptions = {
