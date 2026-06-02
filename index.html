@@ -32,16 +32,21 @@
             },
             animation: {
               "infinite-scroll": "infinite-scroll 30s linear infinite",
-              "screen-slide": "screen-slide 2s ease-in-out forwards",
+              "logo-slide": "logo-slide 2s ease-in-out forwards",
+              "blur-fade": "blur-fade 2s ease-in-out forwards",
             },
             keyframes: {
               "infinite-scroll": {
                 from: { transform: "translateX(0)" },
                 to: { transform: "translateX(-50%)" },
               },
-              "screen-slide": {
-                "0%": { transform: "translateX(0)" },
+              "logo-slide": {
+                "0%": { transform: "translateX(-100%)" },
                 "100%": { transform: "translateX(100%)" },
+              },
+              "blur-fade": {
+                "0%": { backdropFilter: "blur(20px)" },
+                "100%": { backdropFilter: "blur(0px)" },
               },
             },
           },
@@ -52,12 +57,12 @@
   <body
     class="font-body antialiased selection:bg-nemo-orange selection:text-nemo-black"
   >
-    <!-- SPLASH SCREEN - BLACK SCREEN SLIDES OUT WITH FISH -->
-    <div id="splashScreen" class="fixed inset-0 bg-nemo-black z-[100] flex items-center justify-center animate-screen-slide origin-left">
+    <!-- SPLASH SCREEN - BLURRED BACKGROUND WITH LOGO ANIMATION -->
+    <div id="splashOverlay" class="fixed inset-0 z-[100] flex items-center justify-center animate-blur-fade pointer-events-none">
       <img 
         src="logo-placeholder.png" 
         alt="Nemo Fish Logo" 
-        class="h-24 md:h-32 w-auto object-contain drop-shadow-lg"
+        class="h-48 md:h-64 w-auto object-contain animate-logo-slide drop-shadow-2xl"
       >
     </div>
 

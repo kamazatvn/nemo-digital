@@ -88,11 +88,11 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Remove splash screen after animation completes
-  const splashScreen = document.getElementById('splashScreen');
-  if (splashScreen) {
+  // Remove splash overlay after animation completes
+  const splashOverlay = document.getElementById('splashOverlay');
+  if (splashOverlay) {
     setTimeout(() => {
-      splashScreen.remove();
+      splashOverlay.remove();
     }, 2000); // Animation completes at 2 seconds
   }
 
